@@ -8,6 +8,8 @@ We have multiple problems in our Frontend Application that need to be fixed. Fee
 
 Please fix our layout at [fix-layout](http://localhost:3000/fix-layout) page. The red module box should be placed right beside the two title boxes, somehow it slipped down for us. Maybe you can even explain to us why this did happen?
 
+    The float property was set on the section (title boxes) and aside (red module box) elements, which made the display property be set to block on both elements, thus they couldn't be placed next to each other.
+
 # 2. Make our page responsive:
 
 Please make our page ([fix-responsive](http://localhost:3000/fix-responsive)) responsive while maintaining the hierachy of importance. Do your best at making it fit the screen more appropriately at any screen size.
