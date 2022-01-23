@@ -18,6 +18,10 @@ Please make our page ([fix-responsive](http://localhost:3000/fix-responsive)) re
 
 Please change the markup on the [replace-image](http://localhost:3000/replace-image) page to an image by just using CSS. We would appreciate if you could demonstrate us multiple ways of how one can achieve this.
 
+    - One way of achieving this is by adding the image to the static directory and setting the background-image property of the anchor tag. All files from the static folder will be automatically served by nuxt and can be referenced relative to the root (/).
+
+    - Another way of doing this is to place the image inside the assets directory, and webpack will take care of serving all files from this directory. Because .png is not JavaScript file, nuxt will use webpack's `file-loader` and `url-loader` to handle it.
+
 # 4. Introducing state to our Application:
 
 We now want to add interaction to our table on our Index page ([localhost:3000/](http://localhost:3000/)). Please complete the feature that we can add and remove persons from the table. Ideally we want to do this using the Vuex Store to manage the state.
