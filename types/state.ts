@@ -3,7 +3,7 @@ export interface RootState {
 }
 
 export interface PersonsState {
-  persons: [Person] | [];
+  persons: Person[];
 }
 
 export interface Person {

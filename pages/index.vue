@@ -1,13 +1,16 @@
 <template>
   <div>
     <div class="table-container">
-      <table style="width:100%">
+      <table style="width: 100%">
         <tr>
           <th>Firstname</th>
           <th>Lastname</th>
           <th>Action</th>
         </tr>
-        <tr v-for="(person, index) in persons" :key="person.firstName + person.lastName + index">
+        <tr
+          v-for="(person, index) in persons"
+          :key="person.firstName + person.lastName + index"
+        >
           <td>{{ person.firstName }}</td>
           <td>{{ person.lastName }}</td>
           <td><el-button @click="remove">Remove</el-button></td>
@@ -15,26 +18,44 @@
       </table>
     </div>
     <div class="input-container">
-      <el-input placeholder="Firstname"></el-input>
-      <el-input placeholder="Lastname"></el-input>
+      <el-input v-model="firstName" placeholder="Firstname"></el-input>
+      <el-input v-model="lastName" placeholder="Lastname"></el-input>
       <el-button @click="add">Add</el-button>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator';
+import { Component, Vue, namespace } from "nuxt-property-decorator";
+import { Person } from "../types/state";
+
+const persons = namespace("persons");
 
 @Component({
-  name: 'index',
+  name: "index",
 })
 export default class Index extends Vue {
-  persons = [{firstName: 'Jill', lastName: 'Smith'}, {firstName: 'Eve', lastName: 'Jackson'}];
+  @persons.State
+  public persons!: Person[];
 
-  add() {}
+  firstName = "";
+  lastName = "";
 
-  remove() {}
+  add() {
+    if (this.firstName && this.lastName) {
+      this.$store.commit("persons/add", {
+        firstName: this.firstName,
+        lastName: this.lastName,
+      });
 
+      this.firstName = "";
+      this.lastName = "";
+    }
+  }
+
+  remove() {
+    this.$store.commit("persons/remove");
+  }
 }
 </script>
 
@@ -59,7 +80,9 @@ export default class Index extends Vue {
   margin-right: 2rem;
 }
 
-table, th, td {
+table,
+th,
+td {
   border: 1px solid black;
   padding: 15px;
 }
