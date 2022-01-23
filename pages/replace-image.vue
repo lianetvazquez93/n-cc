@@ -1,13 +1,19 @@
 <template>
-  <a href="/" class="logo">Company</a>
+  <a href="/" class="logo"></a>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue from "vue";
 
-export default Vue.extend({})
+export default Vue.extend({});
 </script>
 
 <style scoped>
-  .logo {}
+.logo {
+  background-image: url("/imaginary-co.png");
+  /*background-image: url("~assets/images/imaginary-co.png");*/
+  width: 300px;
+  height: 163px;
+  display: inline-block;
+}
 </style>
