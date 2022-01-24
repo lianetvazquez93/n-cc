@@ -13,7 +13,7 @@
         >
           <td>{{ person.firstName }}</td>
           <td>{{ person.lastName }}</td>
-          <td><el-button @click="remove">Remove</el-button></td>
+          <td><el-button @click="remove(person)">Remove</el-button></td>
         </tr>
       </table>
     </div>
@@ -53,8 +53,8 @@ export default class Index extends Vue {
     }
   }
 
-  remove() {
-    this.$store.commit("persons/remove");
+  remove(person: Person) {
+    this.$store.commit("persons/remove", person);
   }
 }
 </script>

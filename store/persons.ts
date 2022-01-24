@@ -15,7 +15,7 @@ export const mutations: MutationTree<PersonsState> = {
     state.persons.push(person);
   },
   remove(state, person: Person) {
-    state.persons.splice(state.persons.indexOf(person), 1);
+    state.persons = state.persons.filter(p => p != person);
   }
 };
 

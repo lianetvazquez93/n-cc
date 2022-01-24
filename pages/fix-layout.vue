@@ -3,7 +3,7 @@
     <header>
       <h1>Site</h1>
     </header>
-    <div class="wrapper">
+    <main class="wrapper">
       <section>
         <article>
           <h2>Title</h2>
@@ -34,7 +34,7 @@
           </p>
         </div>
       </aside>
-    </div>
+    </main>
   </main>
 </template>
 
